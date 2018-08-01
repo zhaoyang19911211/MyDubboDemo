@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/easyui/themes/default/easyui.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/easyui/themes/icon.css}"/>
+    <script type="text/javascript" th:src="@{/easyui/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/easyui/jquery.easyui.min.js}"></script>
+    <!-- 中文化 -->
+    <script type="text/javascript" src="../js/easyui/locale/easyui-lang-zh_CN.js"></script>
+</head>
+<body style="width:800px; height:100px; background:#eaf2ff; margin:0 auto;">
+<br/><br/>
+<table id="list_data" class="easyui-datagrid" style="width:100%;height:360px;text-align: center;margin-top: 100px">
+    <thead>
+    <tr>
+        <th field="name" width="150">pid</th>
+        <th field="address" width="150">pname</th>
+        <th field="sex" width="150">skill</th>
+        <th field="dd"  width="200">操作</th>
+        <th field="ed"  width="200">操作</th>
+    </tr>
+    </thead>
+    <tr th:each="person : ${personList}" height="50">
+        <td width="150" th:text="${person.pid}">Onions</td>
+        <td width="150" th:text="${person.pname}">2.41</td>
+        <td width="150" th:text="${person.skill}">yes</td>
+        <td width="150" ><a th:href="@{/del?pid=}+${person.pid}">删除</a></td>
+        <td width="150" ><a th:href="@{/getUpdate?id=}+${person.pid}+@{&pname=}+${person.pname}+@{&skill=}+${person.skill}">修改</a></td>
+    </tr>
+</table>
+<br/>
+<a  id="save" class="easyui-linkbutton" iconCls="icon-ok" th:href="@{/addpage}">新增人员</a>
+</body>
+</html>

@@ -1,0 +1,8 @@
+spring:
+  #返回页面thymeleaf
+  thymeleaf:
+    prefix: classpath:/static/views/
+    suffix: .html
+#      content-type: text/html
+    cache: false  #关闭缓存，即时刷新
+    mode: LEGACYHTML5

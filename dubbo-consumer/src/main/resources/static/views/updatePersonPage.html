@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/easyui/themes/default/easyui.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/easyui/themes/icon.css}"/>
+    <script type="text/javascript" th:src="@{/easyui/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/easyui/jquery.easyui.min.js}"></script>
+    <!-- 中文化 -->
+    <script type="text/javascript" src="../js/easyui/locale/easyui-lang-zh_CN.js"></script>
+</head>
+<body style="width:1000px; height:100px; background:#eaf2ff; margin:0 auto;">
+    <h1>Person update</h1>
+    <form action="/update" method="post" th:object="${person}">
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" title="Update" style="width:400px;padding:30px 60px">
+        <div style="margin-bottom:20px">
+            <div>ID:</div>
+            <input th:value="${person.pid}" name="pid" class="easyui-textbox" id="pid" data-options="prompt:'Enter a ID'" style="width:100%;height:32px" readonly="readonly">
+        </div>
+        <div style="margin-bottom:20px">
+            <div>pName:</div>
+            <input th:value="${person.pname}" name="pname" class="easyui-textbox" style="width:100%;height:32px">
+        </div>
+        <div style="margin-bottom:20px">
+            <div>Skill:</div>
+            <input th:value="${person.skill}" name="skill" class="easyui-textbox" style="width:100%;height:32px">
+        </div>
+        <div>
+            <input type="submit" value="Update">
+        </div>
+    </div>
+    </form>
+
+    <script>
+        $(function () {
+            $('#pid').textbox('textbox').css('background','#ccc')
+        })
+    </script>
+</body>
+</html>
